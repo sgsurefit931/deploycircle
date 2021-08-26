@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  aws-s3: circleci/aws-s3@3.0
 jobs:
   build:
     machine:
@@ -38,14 +36,6 @@ jobs:
           at: .
       - checkout
       - run: aws s3 sync ./app/build s3://new-ci-cd-example
-      - aws-s3/sync:
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=86400"
-          aws-access-key-id: ACCESS_KEY
-          aws-region: AWS_REGION
-          aws-secret-access-key: SECRET_ACCESS_KEY
-    
 
 workflows:
   build_test_deploy:
