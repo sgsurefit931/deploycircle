@@ -1,8 +1,7 @@
 version: 2.1
-
-jobs:
 orbs:
   aws-s3: circleci/aws-s3@3.0
+jobs:
   build:
     machine:
       image: ubuntu-2004:202010-01
@@ -20,8 +19,6 @@ orbs:
           paths:
             - .
   test:
-  orbs:
-  aws-s3: circleci/aws-s3@3.0
     machine:
       image: ubuntu-2004:202010-01
     steps:
@@ -34,8 +31,6 @@ orbs:
           paths:
             - .
   deploy:
-  orbs:
-  aws-s3: circleci/aws-s3@3.0
     machine:
         image: ubuntu-2004:202010-01
     steps:
